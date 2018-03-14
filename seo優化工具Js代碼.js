@@ -26,6 +26,7 @@ function ShowSearchFirst(BlockString,SeoString="")
 	});
 	if (SeoString=="")
 	{
+		alert(SearchTextele.innerHTML);
  		console.log(SearchText);
  		SearchText.forEach(function(SearchTextele)
 		{
@@ -51,6 +52,7 @@ function ShowSearchFirst(BlockString,SeoString="")
 					console.log("SeoKeyword:"+SeoKeyword)
 					console.log(SearchTextele.innerHTML.indexOf(SeoKeyword).toString())
 					console.log(SearchTextele.innerHTML)
+					alert(SearchTextele.innerHTML);
 			  		if (SearchTextele.innerHTML.indexOf(SeoKeyword)> -1)
 			  		{
 			  			if (canclick)
@@ -64,5 +66,6 @@ function ShowSearchFirst(BlockString,SeoString="")
 				}
 			});
 		});
+		return SearchText;
 	}
 }
