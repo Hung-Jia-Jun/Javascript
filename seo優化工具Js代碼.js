@@ -69,3 +69,8 @@ function ShowSearchFirst(BlockString,SeoString="")
 		return SearchText;
 	}
 }
+/*
+document.getElementsByClassName('ad_cclk')[0].getElementsByTagName("a")[0]
+document.getElementsByClassName('ad_cclk')[0].getElementsByTagName("a")[1]
+document.getElementsByClassName('ad_cclk')[0].getElementsByTagName("a")[1].getElementsByTagName("div")[0]
+*/
