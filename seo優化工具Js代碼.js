@@ -1,17 +1,37 @@
-function ShowSearchFirst(BlockString,SeoString="")
+function ShowSearchFirst(BlockString,SeoString='')
 {
 	var canclick=true;
-	var SearchText = [document.getElementsByClassName('ad_cclk')[0].getElementsByTagName("div")[0],document.getElementsByClassName('ad_cclk')[1].getElementsByTagName("div")[0],document.getElementsByClassName('ad_cclk')[2].getElementsByTagName("div")[0]];
-	
-	var Blockli=BlockString.split(",")
-	var Seoli=SeoString.split(",")
-	if (BlockString=="")
+	//var SearchText = [document.getElementsByClassName('ad_cclk')[0].getElementsByTagName('a')[1],document.getElementsByClassName('ad_cclk')[1].getElementsByTagName('a')[1],document.getElementsByClassName('ad_cclk')[2].getElementsByTagName('a')[1]];
+	var SearchText=[,,];
+	try
 	{
-		return "No BlockString list input";
+		SearchText[0]= document.getElementsByClassName('ad_cclk')[0].getElementsByTagName('a')[1].getElementsByTagName('div')[0];
 	}
+	catch(e)
+	{
+
+	}
+	try
+	{
+		SearchText[0]= document.getElementsByClassName('ad_cclk')[1].getElementsByTagName('a')[1].getElementsByTagName('div')[0];
+	}
+	catch(e)
+	{
+		
+	}
+	try
+	{
+		SearchText[0]= document.getElementsByClassName('ad_cclk')[2].getElementsByTagName('a')[1].getElementsByTagName('div')[0];
+	}
+	catch(e)
+	{
+		
+	}
+	var Blockli=BlockString.split(',');
+	var Seoli=SeoString.split(',');
 	Blockli.forEach(function(BlockKeyword)
 	{
-		if (BlockKeyword!="")
+		if (BlockKeyword!='')
 		{
 			var num=0;
 		SearchText.forEach(function(SearchTextele)
@@ -24,7 +44,7 @@ function ShowSearchFirst(BlockString,SeoString="")
 		});
 		}
 	});
-	if (SeoString=="")
+	if (SeoString=='')
 	{
 		alert(SearchTextele.innerHTML);
  		console.log(SearchText);
@@ -41,36 +61,33 @@ function ShowSearchFirst(BlockString,SeoString="")
 			
 		});
 	}
-	else if (SeoString!="")
+	else if (SeoString!='')
 	{
 		SearchText.forEach(function(SearchTextele)
 		{
 			Seoli.forEach(function(SeoKeyword)
 			{
-				if (SeoKeyword!="")
+				if (SeoKeyword!='')
 				{
-					console.log("SeoKeyword:"+SeoKeyword)
-					console.log(SearchTextele.innerHTML.indexOf(SeoKeyword).toString())
-					console.log(SearchTextele.innerHTML)
-					alert(SearchTextele.innerHTML);
+					//console.log('SeoKeyword:'+SeoKeyword);
+					//console.log(SearchTextele.innerHTML.indexOf(SeoKeyword).toString());
+					//console.log(SearchTextele.innerHTML);
+					//alert(SearchTextele.innerHTML);
 			  		if (SearchTextele.innerHTML.indexOf(SeoKeyword)> -1)
 			  		{
 			  			if (canclick)
 			  			{
 			  				canclick=false;
-			  				console.log("Click: "+SearchTextele.innerHTML)
+			  				console.log('Click: '+SearchTextele.innerHTML);
 			  				SearchTextele.click();
 			  			}
 			  		}
-			  		console.log("-----------------")
+			  		//console.log('-----------------');
 				}
 			});
 		});
 		return SearchText;
 	}
 }
-/*
-document.getElementsByClassName('ad_cclk')[0].getElementsByTagName("a")[0]
-document.getElementsByClassName('ad_cclk')[0].getElementsByTagName("a")[1]
-document.getElementsByClassName('ad_cclk')[0].getElementsByTagName("a")[1].getElementsByTagName("div")[0]
-*/
+
+//Js 去格式化網站   http://www.sioe.cn/xinqing/format-js.php
