@@ -1,7 +1,7 @@
 function ShowSearchFirst(BlockString,SeoString="")
 {
 	var canclick=true;
-	var SearchText = [document.getElementsByTagName('h3')[0],document.getElementsByTagName('h3')[1],document.getElementsByTagName('h3')[2]];
+	var SearchText = [document.getElementsByClassName('ad_cclk')[0].getElementsByTagName("div")[0],document.getElementsByClassName('ad_cclk')[1].getElementsByTagName("div")[0],document.getElementsByClassName('ad_cclk')[2].getElementsByTagName("div")[0]];
 	
 	var Blockli=BlockString.split(",")
 	var Seoli=SeoString.split(",")
