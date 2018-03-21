@@ -13,7 +13,7 @@ function ShowSearchFirst(BlockString,SeoString='')
 	}
 	try
 	{
-		SearchText[0]= document.getElementsByClassName('ad_cclk')[1].getElementsByTagName('a')[1].getElementsByTagName('div')[0];
+		SearchText[1]= document.getElementsByClassName('ad_cclk')[1].getElementsByTagName('a')[1].getElementsByTagName('div')[0];
 	}
 	catch(e)
 	{
@@ -21,7 +21,7 @@ function ShowSearchFirst(BlockString,SeoString='')
 	}
 	try
 	{
-		SearchText[0]= document.getElementsByClassName('ad_cclk')[2].getElementsByTagName('a')[1].getElementsByTagName('div')[0];
+		SearchText[2]= document.getElementsByClassName('ad_cclk')[2].getElementsByTagName('a')[1].getElementsByTagName('div')[0];
 	}
 	catch(e)
 	{
@@ -47,7 +47,7 @@ function ShowSearchFirst(BlockString,SeoString='')
 	if (SeoString=='')
 	{
 		alert(SearchTextele.innerHTML);
- 		console.log(SearchText);
+ 		//console.log(SearchText);
  		SearchText.forEach(function(SearchTextele)
 		{
 			if (SearchTextele!=null)
@@ -69,8 +69,9 @@ function ShowSearchFirst(BlockString,SeoString='')
 			{
 				if (SeoKeyword!='')
 				{
-					//console.log('SeoKeyword:'+SeoKeyword);
-					//console.log(SearchTextele.innerHTML.indexOf(SeoKeyword).toString());
+					console.log(SearchText[0])
+					console.log(SearchText[1])
+					console.log(SearchText[2])
 					//console.log(SearchTextele.innerHTML);
 					//alert(SearchTextele.innerHTML);
 			  		if (SearchTextele.innerHTML.indexOf(SeoKeyword)> -1)
@@ -82,12 +83,11 @@ function ShowSearchFirst(BlockString,SeoString='')
 			  				SearchTextele.click();
 			  			}
 			  		}
-			  		//console.log('-----------------');
+			  		console.log('-----------------');
 				}
 			});
 		});
 		return SearchText;
 	}
 }
-
 //Js 去格式化網站   http://www.sioe.cn/xinqing/format-js.php
