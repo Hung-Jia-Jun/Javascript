@@ -1,14 +1,14 @@
-function ShowSearchFirst(BlockString, SeoString = '') {
+function ShowSearchFirst(BlockString, SeoString) {
 	var canclick = true;
 	var SearchText = [, , ];
 	try {
-		SearchText[0] = document.getElementsByClassName('ads-fr')[0]
+		SearchText[0] = document.getElementsByClassName('ads-fr')[0].getElementsByTagName('div')[2]
 	} catch(e) {}
 	try {
-		SearchText[1] = document.getElementsByClassName('ads-fr')[1]
+		SearchText[1] = document.getElementsByClassName('ads-fr')[1].getElementsByTagName('div')[2]
 	} catch(e) {}
 	try {
-		SearchText[2] = document.getElementsByClassName('ads-fr')[2]
+		SearchText[2] = document.getElementsByClassName('ads-fr')[2].getElementsByTagName('div')[2]
 	} catch(e) {}
 	var Blockli = BlockString.split(',');
 	var Seoli = SeoString.split(',');
@@ -36,21 +36,21 @@ function ShowSearchFirst(BlockString, SeoString = '') {
 		SearchText.forEach(function(SearchTextele) {
 			Seoli.forEach(function(SeoKeyword) {
 				if (SeoKeyword != '') {
-					console.log(SearchText[0].getElementsByTagName('div')[2].getElementsByTagName('div')[0].innerHTML);
-					console.log(SearchText[1].getElementsByTagName('div')[2].getElementsByTagName('div')[0].innerHTML);
-					console.log(SearchText[2].getElementsByTagName('div')[2].getElementsByTagName('div')[0].innerHTML);
-					if (SearchTextele.getElementsByTagName('div')[2].getElementsByTagName('a')[0].getElementsByTagName('div')[0].innerHTML.indexOf(SeoKeyword) > -1) {
+					try {
+						console.log(SearchText[0].getElementsByTagName('div')[0].innerHTML)
+					} catch(e) {}
+					try {
+						console.log(SearchText[1].getElementsByTagName('div')[0].innerHTML)
+					} catch(e) {}
+					try {
+						console.log(SearchText[2].getElementsByTagName('div')[0].innerHTML)
+					} catch(e) {}
+					if (SearchTextele.getElementsByTagName('div')[0].innerHTML.indexOf(SeoKeyword) > -1) {
 						if (canclick) {
 							canclick = false;
-							console.log('Click: ' + SearchTextele.getElementsByTagName('div')[2].getElementsByTagName('a')[0].getElementsByTagName('div')[0].innerHTML);
-							SearchTextele.getElementsByTagName('div')[4].getElementsByTagName('span')[1].click()
-						}
-					}
-					if (SearchTextele.getElementsByTagName('div')[2].getElementsByTagName('a')[0].getElementsByTagName('div')[1].innerHTML.indexOf(SeoKeyword) > -1) {
-						if (canclick) {
-							canclick = false;
-							console.log('Click: ' + SearchTextele.getElementsByTagName('div')[2].getElementsByTagName('a')[0].getElementsByTagName('div')[1].innerHTML);
-							SearchTextele.getElementsByTagName('div')[3].click()
+							console.log('Click: ' + SearchTextele.getElementsByTagName('div')[0].innerHTML);
+							SearchTextele.getElementsByTagName('div')[0].click();
+							SearchTextele.getElementsByTagName('div')[1].click()
 						}
 					}
 					console.log('-----------------')
