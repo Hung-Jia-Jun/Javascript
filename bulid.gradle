@@ -1,0 +1,14 @@
+
+task deleteJar(type: Delete) {
+    delete 'libs/jars/logmanagementlib.jar'
+}
+
+task createJar(type: Copy) {
+    from('libs/classes.jar')
+    into('libs/release/')
+    include('classes.jar')
+    // 將匯出的 jar 檔重新命名
+    rename('classes.jar', 'AndroidPlugin.jar')
+}
+
+createJar.dependsOn(deleteJar, build)
