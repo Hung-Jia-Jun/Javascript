@@ -1,14 +1,19 @@
+function eraseCookie(name) {
+	document.cookie = name + '=; Max-Age=-99999999;';
+}
 function ShowSearchFirst(BlockString, SeoString) {
+	var cookies = document.cookie.split(";");
+	for (var i = 0; i < cookies.length; i++) eraseCookie(cookies[i].split("=")[0]);
 	var canclick = true;
 	var SearchText = [, , ];
 	try {
-		SearchText[0] = document.getElementsByClassName('ads-fr')[0].getElementsByTagName('div')[2]
+		SearchText[0] = document.getElementsByClassName('ads-fr')[0].getElementsByTagName('div')[2];
 	} catch(e) {}
 	try {
-		SearchText[1] = document.getElementsByClassName('ads-fr')[1].getElementsByTagName('div')[2]
+		SearchText[1] = document.getElementsByClassName('ads-fr')[1].getElementsByTagName('div')[2];
 	} catch(e) {}
 	try {
-		SearchText[2] = document.getElementsByClassName('ads-fr')[2].getElementsByTagName('div')[2]
+		SearchText[2] = document.getElementsByClassName('ads-fr')[2].getElementsByTagName('div')[2];
 	} catch(e) {}
 	var Blockli = BlockString.split(',');
 	var Seoli = SeoString.split(',');
@@ -17,7 +22,7 @@ function ShowSearchFirst(BlockString, SeoString) {
 			var num = 0;
 			SearchText.forEach(function(SearchTextele) {
 				if (SearchTextele.innerHTML.indexOf(BlockKeyword) > -1) {
-					SearchText.splice(num, 1)
+					SearchText.splice(num, 1);
 				}
 				num += 1
 			})
@@ -28,7 +33,7 @@ function ShowSearchFirst(BlockString, SeoString) {
 			if (SearchTextele != null) {
 				if (canclick) {
 					canclick = false;
-					SearchTextele.getElementsByTagName('div')[4].getElementsByTagName('span')[1].click()
+					SearchTextele.getElementsByTagName('div')[4].getElementsByTagName('span')[1].click();
 				}
 			}
 		})
@@ -37,20 +42,24 @@ function ShowSearchFirst(BlockString, SeoString) {
 			Seoli.forEach(function(SeoKeyword) {
 				if (SeoKeyword != '') {
 					try {
-						console.log(SearchText[0].getElementsByTagName('div')[0].innerHTML)
+						console.log(SearchText[0].getElementsByTagName('div')[0].innerHTML);
 					} catch(e) {}
 					try {
-						console.log(SearchText[1].getElementsByTagName('div')[0].innerHTML)
+						console.log(SearchText[1].getElementsByTagName('div')[0].innerHTML);
 					} catch(e) {}
 					try {
-						console.log(SearchText[2].getElementsByTagName('div')[0].innerHTML)
+						console.log(SearchText[2].getElementsByTagName('div')[0].innerHTML);
 					} catch(e) {}
 					if (SearchTextele.getElementsByTagName('div')[0].innerHTML.indexOf(SeoKeyword) > -1) {
 						if (canclick) {
 							canclick = false;
 							console.log('Click: ' + SearchTextele.getElementsByTagName('div')[0].innerHTML);
-							SearchTextele.getElementsByTagName('div')[0].click();
-							SearchTextele.getElementsByTagName('div')[1].click()
+							try {
+								SearchTextele.getElementsByTagName('div')[1].click();
+							} catch(e) {}
+							try {
+								SearchTextele.getElementsByTagName('div')[0].click();
+							} catch(e) {}
 						}
 					}
 					console.log('-----------------')
