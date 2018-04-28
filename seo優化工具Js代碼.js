@@ -5,9 +5,9 @@ function eraseCookie(name)
 }
 
 function ShowSearchFirst(BlockString, SeoString) {
-	var cookies = document.cookie.split(";");
+	var cookies = document.cookie.split(';');
 	for (var i = 0; i < cookies.length; i++)
-		eraseCookie(cookies[i].split("=")[0]);
+		eraseCookie(cookies[i].split('=')[0]);
 	var canclick = true;
 	var SearchText = [, , ];
 	try {
